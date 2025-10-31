@@ -1,14 +1,12 @@
 title: Bogdan Bojan
 author:
   name: Bogdan Bojan
-  email: bogdanbojan03@gmail.com
+  email: hello@bogdanbojan.com
 
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
 description: >
-  Doo-doo.
-
-
+  Live implementation of HTCPCP/1.0
 
 # Build settings
 
