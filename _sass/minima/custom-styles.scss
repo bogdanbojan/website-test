@@ -1,2 +1,44 @@
 // Placeholder to allow defining custom styles that override everything else.
 // (Use `_sass/minima/custom-variables.scss` to override variable defaults)
+
+// Series navigation box, shown on posts with `series` + `part` front matter.
+.series-nav {
+  margin-bottom: $spacing-unit;
+  padding: $spacing-unit * .5 $spacing-unit * .75;
+  border: 1px solid $border-color-01;
+  border-radius: 3px;
+  background-color: $code-background-color;
+  font-size: $small-font-size;
+}
+
+.series-nav-heading {
+  margin-bottom: $spacing-unit * .25;
+}
+
+.series-nav-list {
+  margin: 0 0 ($spacing-unit * .5) ($spacing-unit * 1.25);
+  padding: 0;
+}
+
+.series-nav-current {
+  color: $brand-color;
+}
+
+.series-nav-adjacent {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.series-nav-disabled {
+  color: $border-color-01;
+}
+
+// Series badge shown under each post title in the homepage list.
+.post-list .series-badge {
+  display: block;
+  font-size: $small-font-size;
+  color: $brand-color;
+  margin-top: -($spacing-unit * .5);
+  margin-bottom: $spacing-unit * .25;
+}

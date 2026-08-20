@@ -26,6 +26,10 @@ layout: base
       {%- endif -%}</p>
   </header>
 
+  {%- if page.series -%}
+    {%- include series-nav.html -%}
+  {%- endif -%}
+
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
   </div>

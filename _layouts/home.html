@@ -31,6 +31,9 @@ layout: base
             {{ post.title | escape }}
           </a>
         </h3>
+        {%- if post.series -%}
+          <span class="series-badge">Part {{ post.part }} &middot; {{ post.series }}</span>
+        {%- endif -%}
         {%- if site.show_excerpts -%}
           {{ post.excerpt }}
         {%- endif -%}

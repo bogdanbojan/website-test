@@ -1,0 +1,39 @@
+{%- comment -%}
+  Renders a series navigation box for posts that have `series` + `part`
+  front matter. Include from a post layout with:
+    {%- if page.series -%}{%- include series-nav.html -%}{%- endif -%}
+{%- endcomment -%}
+{%- assign series_posts = site.posts | where: "series", page.series | sort: "part" -%}
+{%- assign series_size = series_posts | size -%}
+<div class="series-nav">
+  <p class="series-nav-heading">
+    Series: <strong>{{ page.series }}</strong> &middot; Part {{ page.part }} of {{ series_size }}
+  </p>
+  <ol class="series-nav-list">
+    {%- for post in series_posts -%}
+      <li{% if post.url == page.url %} class="series-nav-current"{% endif %}>
+        {%- if post.url == page.url -%}
+          <strong>{{ post.title | escape }}</strong>
+        {%- else -%}
+          <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+  </ol>
+  <p class="series-nav-adjacent">
+    {%- assign prev_part = page.part | minus: 1 -%}
+    {%- assign next_part = page.part | plus: 1 -%}
+    {%- assign prev_post = series_posts | where: "part", prev_part | first -%}
+    {%- assign next_post = series_posts | where: "part", next_part | first -%}
+    {%- if prev_post -%}
+      <a class="series-nav-prev" href="{{ prev_post.url | relative_url }}">&larr; Previous part</a>
+    {%- else -%}
+      <span class="series-nav-prev series-nav-disabled">&larr; Previous part</span>
+    {%- endif -%}
+    {%- if next_post -%}
+      <a class="series-nav-next" href="{{ next_post.url | relative_url }}">Next part &rarr;</a>
+    {%- else -%}
+      <span class="series-nav-next series-nav-disabled">Next part &rarr;</span>
+    {%- endif -%}
+  </p>
+</div>
