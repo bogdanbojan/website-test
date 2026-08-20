@@ -2,7 +2,7 @@
 layout: post
 title: "The Twentieth Page Costs More Than the First"
 subtitle: "Part 1: why OFFSET pagination gets slower, and sometimes wrong"
-date: 2026-08-23
+date: 2026-08-20
 series: "offset to keyset"
 part: 1
 tags: [postgres, pagination, go, performance]
