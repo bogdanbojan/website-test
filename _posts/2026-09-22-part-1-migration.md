@@ -16,7 +16,7 @@ I figured it would be fun to illustrate the problem, some findings along the way
 and what I've learned by doing this.
 
 For the sake of simplifying the scope of the problem, we will use a beat marketplace.
-_Wink_ at CMU Database examples. I just need to throw Wu-Tang somewhere in there.
+_Wink_ at [CMU Database examples](https://15445.courses.cs.cmu.edu/fall2026/). I just need to throw Wu-Tang somewhere in there.
 
 Say we have a legacy schema:
 
