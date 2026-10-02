@@ -1,5 +1,6 @@
 ---
 layout: post
+title: "Cross-platform builds with Go and Fyne"
 ---
 
 I've been working on a [GUI app](https://github.com/bogdanbojan/macaw) that uses the Fyne[^fn1] framework and Go. An interesting 
