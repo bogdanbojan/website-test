@@ -8,7 +8,7 @@ part: 1
 tags: [postgres, jsonb, go, migration]
 ---
 
-During the last month or so, I was in charge of a migration at work, that dealt
+I've been pondering on a work-related problem for quite a while now, that dealt
 with deciding how to store, parse, and handle quite big JSON objects (200MB+) through our
 service.
 
@@ -16,7 +16,7 @@ I figured it would be fun to illustrate the problem, some findings along the way
 and what I've learned by doing this.
 
 For the sake of simplifying the scope of the problem, we will use a beat marketplace.
-_Wink_ at [CMU Database examples](https://15445.courses.cs.cmu.edu/fall2026/). I just need to throw Wu-Tang somewhere in there.
+_Wink_ at [CMU Database examples](https://15445.courses.cs.cmu.edu/fall2026/). I just need to throw [Wu-Tang](https://en.wikipedia.org/wiki/Wu-Tang_Clan) somewhere in there.
 
 Say we have a legacy schema:
 
@@ -27,8 +27,8 @@ CREATE TABLE beats_text (
 );
 ```
 
-Life happens, features start to be requested: filter by tag, search by BPM, which
-RZA beat uses this sample, etc. The legacy system fetches the whole document, unmarshals
+Life happens, features start to be requested: filter by tag, search by [BPM](https://en.wikipedia.org/wiki/Tempo), which
+[RZA](https://en.wikipedia.org/wiki/RZA) beat uses this sample, etc. The legacy system fetches the whole document, unmarshals
 it, and walks it with nested loops. I have a hunch we can do better than this...
 
 ---
@@ -44,13 +44,13 @@ Let's consider the following:
 - Different device models have different data shapes
 - The file has to come back out byte identical (keeping track of the original)
 
-If we would RTFM. we would see that:
+If we would [RTFM](https://en.wikipedia.org/wiki/RTFM). we would see that:
 
 > Ideally, JSON documents should each represent an atomic datum that business
 > rules dictate cannot reasonably be further subdivided into smaller datums that
 > could be modified independently.
 
-## Just use a NOSQL DB
+## Just use a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) DB
 
 If tables are not ideal, use Mongo (or whatever document store you prefer)
 
@@ -206,7 +206,7 @@ The column is `jsonb`. No application code has changed, so nothing is faster yet
 Every query still fetches the whole project and we still walk through it.
 
 That's Part 2. Then Part 3, where the queries get faster but nowhere near as fast
-as they should, and every index I build, GIN and B-tree alike, gets ignored by
+as they should, and every index I build, [GIN](https://www.postgresql.org/docs/current/gin.html) and [B-tree](https://en.wikipedia.org/wiki/B-tree) alike, gets ignored by
 the planner. Part 4 tries the whole thing with tables instead, and Part 5 covers
 the write path and what changed in Postgres 17 and 18.
 
